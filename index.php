@@ -46,7 +46,7 @@
 </div>
 
 
-<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"> <a href="home.php"><img class="w-10" src="../assets/icons/landIcon.png" alt=""></a>
+<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"> <a href="/php/home.php"><img class="w-10" src="../assets/icons/landIcon.png" alt=""></a>
      
  </button>
 
