@@ -1,0 +1,85 @@
+footer{
+    background-color: #52ab98;
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+    position: relative;
+    top: 3rem;
+    
+   
+}
+
+.parent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 100% !important;
+}
+
+.child1 form{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    
+   
+}
+.media{
+    margin-top: 0 !important;
+  
+}
+
+.child1 p{
+    color: white;
+    font-weight: lighter;
+    width: 70%;
+}
+
+textarea{
+    border: 0;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.send{
+    background-color: #2B6777;
+    border: 0;
+    width: 6vw;
+    height: 6vh;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+
+input[type=text]{
+    
+    border: 0;
+   height: 6vh;
+    border-radius: 5px;
+}
+input[type=email]{
+    
+    border: 0;
+   height: 6vh;
+    border-radius: 5px;
+}
+.inputname{
+    width: 100%;
+    
+}
+.inputname:focus{
+    border: #2B6777;
+
+}
+.social{
+    width: 2.5vw;
+    transition: width 2s, height 4s;
+}
+.social:hover{
+    width: 3.5rem;
+  height: 3.5rem;
+}
+
+    
+
+/* input[type=password] 
+input[type=number]  */

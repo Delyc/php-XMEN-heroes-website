@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.addHero{
+    background-color: #52ab98;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+  
+    gap: 2rem;
+    
+}
+
+li a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #52ab98;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+}
+
+.adminpage{
+    color: #52ab98;
+    font-weight: bold;
+}
+.td{
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    word-break: break-all;
+
+}
+
+.actions{
+    display: flex;
+}
+.nameid{
+    display: flex;
+}
+.rem{
+    display: flex;
+    flex-direction: column;
+}
+.rem p{
+    width: 100%;
+    padding: 1rem;
+   
+}
+
+.tr{
+ 
+}
+
+
+
+  td {
+   
+    border:  thin solid rgba(0, 0, 0, 0.034) !important;
+   
+
+    padding: 1rem;
+    word-break: break-all;
+  
+  }
+  th{
+    background-color: rgba(219, 199, 199, 0.246);
+      border:  thin solid rgba(0, 0, 0, 0.034) !important;
+      padding: 1rem;
+  } 
+  .id{
+      width: 5% !important;
+  }
+  table{
+
+  } 
+ 
+.table{ 
+
+
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    max-width: 100%;
+    padding: 5rem;
+}
+
+.btn{
+    background-color: #52ab98;
+}
+
+.deletebtn{
+    background-color: red !important;
+    border: none !important;
+    border-radius: 5px;
+    height: 5.5vh;
+    width: 2.5vw;
+}
+.editbtn{
+    background-color: #054E2B !important;
+    border: none;
+    border-radius: 5px;
+    height: 5.5vh;
+    width: 2.5vw;
+}
+.editbtn img{
+    width: 1.5rem !important;
+}
+.deletebtn img{
+    width: 1.5rem !important;
+}
+.addbutton{
+    
+}
+
+
+
+
+
+.buttons{
+    display: flex;
+    gap: 0.5rem;
+
+}
+
+
+
+
+/*===================== add modal======================== */
+
+.modal-header h3{
+    color: #52ab98;
+    text-align: center;
+}
+
+
+.form{
+  
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  
+    /* justify-content: center !important;
+    align-items: center; */
+}
+
+#inline-full-name, #image, #name, #shortBio, #longBio, #realName{
+    min-width: 100% !important;
+    outline: thin solid #52ab987a !important;
+    background-color: #c4c4c434 !important;
+    border: none !important;
+}
+.add{
+    border: 0 !important;
+    background-color: #52ab98;
+    width: 100% !important;
+    height: 6vh;
+    margin-top: 1rem;
+}
+.image{
+    width: 50% !important;
+    
+}
+
+.buttonupdate{
+  
+    margin-top: 1rem;
+    gap: 1rem;
+    display: flex;
+    width: 100% !important;
+    
+}
+
+.cancel{
+    background-color: rgba(255, 0, 0, 0.568);
+    width: 48%;
+    border: 0 !important;
+    height: 6vh;
+}
+
+.update, .delete{
+    border: 0 !important;
+    background-color: #52ab98;
+    height: 6vh;
+    width: 48%;
+
+}
+
+.canceldelete{
+    background-color: rgba(255, 0, 0, 0.568);
+    width: 20%;
+    border: 0 !important;
+    height: 6vh;
+}
+
+.delete{
+    border: 0 !important;
+    background-color: #52ab98;
+    height: 6vh;
+    width: 20%;
+
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
