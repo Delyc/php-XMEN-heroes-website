@@ -1,0 +1,74 @@
+body{
+    background-color: #52ab98;
+}
+
+input[type=password]{
+    
+    border: 0;
+   height: 6vh;
+   width: 25%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+input[type=email]{
+    
+    border: 0;
+   height: 6vh;
+    border-radius: 5px;
+    text-align: center;
+    width: 25%;
+}
+input[type=text]{
+    
+    border: 0;
+   height: 6vh;
+    border-radius: 5px;
+    text-align: center;
+    width: 25%;
+}
+
+.send{
+    background-color: #2B6777;
+    border: 0;
+    width: 25%;
+    height: 6vh;
+    border-radius: 4px;
+    
+    color: white;
+
+}
+
+form{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100% !important;
+    position: absolute;
+    top: 5% !important;
+   
+    width: 90%;
+    box-shadow: #2B6777;
+}
+.sign{
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+p{
+    color: white;
+    width: 25%;
+    margin-top: 0 !important;
+}
+
+.btnback{
+    background-color: #2b677700;
+    border: 0;
+    padding: 4rem;
+   
+}
+.btnback img{
+    width: 3rem !important;
+}

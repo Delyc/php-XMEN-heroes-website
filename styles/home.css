@@ -1,0 +1,11 @@
+.realname{
+    font-weight: bolder;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+}
+.det{
+    display: flex;
+    
+}
