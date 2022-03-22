@@ -101,8 +101,8 @@ if (isset($_POST['submit'])) {
 
 <body class="">
 
-    <!-- ================================================add Modal =============================================================-->
-    <div class="modal fade" id="hero_addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- ================================================more Modal =============================================================-->
+    <div class="modal fade" id="hero_moreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -291,6 +291,95 @@ if (isset($_POST['submit'])) {
 
 
 
+        <!-- ================================================edit Modal =============================================================-->
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add a hero</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <!-- =========================modal body(form)================================ -->
+                    
+
+                    <form class="w-full max-w-sm form" action="update.php" method="post" enctype="multipart/form-data">
+                        <div class="md:flex md:items-center mb-6">
+                            <input type="hidden" name="id" id="id">
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+
+                                </label>
+                            </div>
+
+                            <div class="md:w-2/3">
+                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" value="hi test me" placeholder="Hero's name" name="image" id="image">
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text"  placeholder="Hero's name" name="name"  id="name">
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" placeholder="Hero's real name" name="realName" id="realName">
+                            </div>
+                        </div>
+
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" placeholder="Hero's short bio" name="shortBio" id="shortBio" cols="" rows="3"></textarea>
+
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" placeholder="Hero's long bio" name="longBio" id="longBio" cols="" rows="5"></textarea>
+
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="addedAt" id="addedAt">
+
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/3"></div>
+                           
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===================== end of more modal ========================= -->
+
+
     <!-- ================================================delete Modal =============================================================-->
     <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -328,7 +417,7 @@ if (isset($_POST['submit'])) {
     <div class="section-hero">
         <h3 class="text-center">Admin page</h3>
         <div class="addbutton">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hero_addModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hero_moreModal">
             Add Hero
         </button>
         </div>

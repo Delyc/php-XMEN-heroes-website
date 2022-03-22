@@ -5,6 +5,7 @@ $user = 0;
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    include('../config/dbconnect.php');
   
     $username=$_POST['username'];
     $email=$_POST['email'];

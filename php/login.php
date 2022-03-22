@@ -5,7 +5,7 @@ $invalid = 0;
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    include('config/dbconnect.php');
+    include('../config/dbconnect.php');
 
     $email=$_POST['email'];
     $pass_word=$_POST['pass_word'];
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 header('location:admin.php');
                 
             }else{
-                header('location:index.php');
+                header('location:home.php');
 
             }
          
