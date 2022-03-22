@@ -5,7 +5,7 @@
        
 
    
-    </nav>
+    
 
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://cdn-tailwindcss.vercel.app/"></script>
-<link rel="stylesheet" href="../styles/land.css">
+<link rel="stylesheet" href="./styles/land.css">
 </head>
 <body>
 
@@ -46,7 +46,7 @@
 </div>
 
 
-<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"> <a href="/php/home.php"><img class="w-10" src="../assets/icons/landIcon.png" alt=""></a>
+<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"> <a href="./php/home.php"><img class="w-10" src="./assets/icons/landIcon.png" alt=""></a>
      
  </button>
 
