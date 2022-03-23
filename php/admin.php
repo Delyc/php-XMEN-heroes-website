@@ -72,6 +72,7 @@ if (isset($_POST['submit'])) {
     <!-- <link rel="stylesheet" href="../styles/main.css"> -->
     <link rel="stylesheet" href="../styles/admin.css">
     <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/footerres.css">
     <!-- <link href="https://unpkg.com/tailwindcss@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://cdn-tailwindcss.vercel.app/"></script> -->
 
@@ -89,7 +90,7 @@ if (isset($_POST['submit'])) {
         <ul>
             <li><a href="logout.php"> Home</li></a>
             <li><a href="logout.php"> Contact us</li></a>
-            <li><a href="logout.php"> Login</li></a>
+            <!-- <li><a href="logout.php"> Login</li></a> -->
 
         </ul>
 
@@ -466,8 +467,8 @@ if (isset($_POST['submit'])) {
                                 <td><?php echo $row['heroName'] ?></td>
 
                                 <td><?php echo $row['realName'] ?></td>
-                                <td><?php echo $row['shortBio'] ?></td>
-                                <td><?php echo $row['longBio'] ?></td>
+                                <td ><?php echo $row['shortBio'] ?></td>
+                                <td class="long"><?php echo $row['longBio'] ?></td>
                                
                                 <td class="buttons">
                                     <button class="editbtn" type="button"><img class="imgicon" src="../assets/icons/edit.png" alt=""></button>
