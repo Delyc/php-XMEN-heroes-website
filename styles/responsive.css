@@ -1,0 +1,32 @@
+@media (min-width: 320px) and (max-width: 480px) {
+    footer{
+        outline: thin solid red;
+    }
+    .parent{
+        display: flex;
+        flex-direction: column !important;
+        padding: 2rem;
+     
+        
+    }
+    input[type=email]{
+        
+        width: 95%;
+        height: 8vh;
+        }
+        input[type=text]{
+           
+            width: 95%;
+            height: 8vh;
+            }
+            textarea{
+                width: 95%;
+            }
+            .send{
+                width: 30vw;
+            }
+            .social{
+                width: 10vw;
+            }
+           
+}
