@@ -1,0 +1,53 @@
+@media (min-width: 320px) and (max-width: 480px) {
+ 
+            .table{
+                padding: 2rem !important;
+               
+               
+             
+                
+               width: 100% !important;
+            }
+            .section-hero{
+                outline: thin solid blue;
+            }
+            #heroTable_paginate{
+                outline: thin solid blue;
+                width: 30% !important;
+                margin-left: 4rem !important;
+                display: none !important;
+            }
+            #heroTable_last{
+                display: none !important;
+            }
+            .pagination{
+                
+            }
+            table{
+                width: 100% !important;
+                
+                display: flex;
+                flex-direction: column;
+            
+            }
+            tr{
+                display: flex;
+                flex-direction: column;
+            
+                width: 95% !important;
+
+            }
+            td{
+                
+                width:95% !important;
+            }
+            .id{
+                display: flex;
+                flex-direction: column;
+                width: 100% !important;
+            }
+            .id img{
+                width: 95% !important;
+            }
+            
+}

@@ -140,3 +140,35 @@ footer{
 .card{
     border-bottom: 1px solid #2b6777;
 }
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    header{
+        outline: thin solid red !important;
+        min-width: 100% !important;
+    }
+    .name h1{
+        /* width: 100%; */
+        font-size: 5rem !important;
+     
+    }
+    .name{
+        width: 100% !important;
+        left: 0 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    xmen{
+        color: red !
+        ;
+    }
+    .name p{
+        width: 70% !important;
+     
+    }
+
+
+
+}
