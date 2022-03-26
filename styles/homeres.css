@@ -49,5 +49,14 @@
             .id img{
                 width: 95% !important;
             }
+
+            .morebtn, .idhero{
+                width: 20vw !important;
+                height: auto;
+               
+            }
+            .long{
+                outline: thin solid red;
+            }
             
 }

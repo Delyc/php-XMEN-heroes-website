@@ -1,13 +1,4 @@
 
-
-
-    
-       
-
-   
-    
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,40 +15,21 @@
 <header>
 <nav>
     <ul class="text-white font-bolder">
-        <li>Home</li>
-        <li>Sign up</li>
-        <li>Contact us</li>
+        <li><a href="./php/home.php">Home</a> </li>
+        <li><a href="./php/signup.php"> Sign up</a></li>
+        <li><a href=""></a> Contact us</li>
     </ul>
 </nav>
 <section class="overlay">
 </section>
-
-
-
-
-
-
-
-
 </header>
 <div class="name">
     <h1 class="xmen">X-MEN</h1>
     <p class="text-white ">simply dummy text of the printing and typesetting industry.</p>
 </div>
-
-
-
-<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"><a href="./home.php"><img class="w-10" src="./assets/icons/landIcon.png" alt=""></a>
-
-<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"> <a href="./home.php"><img class="w-10" src="./assets/icons/landIcon.png" alt=""></a>
-
-   
- </button>
-
-
-
-
-    
+<button class="next w-24 h-10 rounded-lg flex items-center justify-center animate-bounce"><a href="./php/home.php"><img class="w-10" src="./assets/icons/landIcon.png" alt=""></a>
+ 
+ </button>  
 </body>
 </html>
 

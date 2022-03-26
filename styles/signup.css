@@ -28,7 +28,7 @@ input[type=text]{
     width: 25%;
 }
 
-.send{
+/* .send{
     background-color: #2B6777;
     border: 0;
     width: 25%;
@@ -37,6 +37,15 @@ input[type=text]{
     
     color: white;
 
+} */
+.sent{
+    background-color: #2B6777 !important;
+    border: 0;
+    width: 25%;
+    height: 6vh;
+    border-radius: 4px;
+    
+    color: white;
 }
 
 form{
@@ -71,4 +80,29 @@ p{
 }
 .btnback img{
     width: 3rem !important;
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    input[type=email]{
+        width: 90% !important;
+        
+    }
+    input[type=password]{
+        width: 90% !important;
+       
+    }
+    input[type=text]{
+        width: 90% !important;
+       
+    }
+    .send{
+        width: 90% !important;
+
+    }
+   .login p{
+       width: 90%;
+   }
 }

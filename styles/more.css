@@ -6,6 +6,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    word-break: break-all;
 }
 
 .more img{
@@ -13,5 +14,21 @@
     border-radius: 10px;
 }
 .more p{
-    width: 50%;
+    width: 50% !important;
+  
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .more{
+        width: 100% !important;
+        padding: 0 !important;
+  
+    }
+    .more img{
+        width: 80% !important;
+    }
+    .more p{
+        width: 80% !important;
+
+    }
 }

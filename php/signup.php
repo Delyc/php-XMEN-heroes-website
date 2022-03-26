@@ -3,6 +3,7 @@
 $success = 0;
 $user = 0;
 
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     include('../config/dbconnect.php');
@@ -10,39 +11,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username=$_POST['username'];
     $email=$_POST['email'];
     $pass_word=$_POST['pass_word'];
-    $hashed_password = password_hash($pass_word, PASSWORD_DEFAULT);
-    // $file = $_FILES['image'];
-    // $fileName = $file["name"];
-    // $fileType = $file["type"];
-    // $fileTempName = $file["tmp_name"];
-    // $fileError = $file["error"];
-    // $fileSize = $file["size"];
-
-    // $fileExt = explode(".", $fileName);
-    // $fileActualExt = strtolower(end($fileExt));
-    // $allowed = array("jpg", "jpeg", "png");
-    // if(in_array($fileActualExt, $allowed)){
-    //     if($fileError === 0){
-    //         if($fileSize > 2000000){
-                
-
-    //         }else{
-    //             echo "too big error";
-    //             exit();
-                
-    //         }
-
-    //     }else{
-    //         echo "error";
-    //     exit();
-    //     }
-       
-
-    // }else{
-    //     echo "error";
-    //     exit();
-    // }
-
+    $salt = "salt";
+    $hashed_password = sha1($pass_word.$salt);
 
     
 
@@ -58,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $result = mysqli_query($conn, $sql);
     if($result){
         $success=1;
+        $_SESSION['status'] = "";
         header('location:login.php');
     } else{
         die(mysqli_error($conn));
@@ -66,11 +37,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 }
-
-
-
-
-
 
 ?>
  
@@ -81,14 +47,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/signup.css">
+      <link href="https://unpkg.com/tailwindcss@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn-tailwindcss.vercel.app/"></script> 
     <title>Document</title>
 </head>
 <body>
 <?php
     if($user){
-        echo ' <div class="bg-orange-100 border-l-8 w-1/2 p-10 ml-10 animate-bounce mb-10 border-red-500 text-red-500 p-4" role="alert">
-        <p class="font-bold">Sign up failed</p>
-        <p>User with this email already exist, try again!</p>
+        echo ' <div class="bg-white mt-10 border-l-8 w-1/4 p-10 ml-10 animate-bounce mb-10 border-green-500 text-red-900 tounded p-4" role="alert">
+        <p class="font-bold text-red-500 w-full">Sign up failed, a user with this email already exists</p>
+        
     </div>';
 
     }
@@ -105,40 +73,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
 
     <div>
-    <button class="btnback"><img src="../assets/icons/back.png" alt=""></button>
+    <button class="btnback"><a href="./home.php"><img src="../assets/icons/back.png" alt=""></a></button>
 
-    <form class="w-full max-w-sm" action="signup.php" method="POST">
+    <form class="" action="signup.php" method="POST">
 
-
-
-
- 
-
-
-
-
-
-
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="your user name" name="username">
-   
-  
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"  type="email" placeholder="your email" name="email">
- 
- 
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="your password" name="pass_word">
-  
- 
- 
-      <button class="send shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+      <input class="" id="inline-full-name" type="text" placeholder="your user name" name="username">
+      <input class=""  type="email" placeholder="your email" name="email">
+      <input class="" id="inline-password" type="password" placeholder="your password" name="pass_word">
+      <button class="send sent" type="submit">
         Sign Up
       </button>
-   
+      <p>don't have an account? <span ><a class="sign" href="./login.php">login here</a> </span> </p>
 </form>
-
-    </div>
-
-
-    
+    </div>   
 </body>
 </html>
 

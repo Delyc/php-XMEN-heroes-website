@@ -1,7 +1,23 @@
 <?php
+session_start();
 
 include('../config/dbconnect.php');
-if (isset($_POST['submit'])) {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // if (isset($_POST['submit'])) {
+    if (empty($_POST['name'])) {
+        $name_error = "required";
+    }
+    if (empty($_POST['realName'])) {
+        echo 'required';
+    }
+    if (empty($_POST['shortBio'])) {
+        echo 'required';
+    }
+    if (empty($_POST['longBio'])) {
+        echo 'required';
+    }
+
 
     if ($_FILES["image"]["error"] == 4) {
         echo " image does not exist";
@@ -42,11 +58,13 @@ if (isset($_POST['submit'])) {
 
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        echo "data inserted successfully";
+        $_SESSION['status'] = "Hero inserted successfully";
+        $_SESSION['status_code'] = "success";
     } else {
         die(mysqli_error($conn));
     }
 }
+// }
 
 
 ?>
@@ -73,6 +91,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../styles/admin.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/footerres.css">
+
     <!-- <link href="https://unpkg.com/tailwindcss@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://cdn-tailwindcss.vercel.app/"></script> -->
 
@@ -81,21 +100,10 @@ if (isset($_POST['submit'])) {
 </head>
 
 <header>
-    <nav>
-        <div class="logo">
-            <h4>X-MEN</h4>
-        </div>
-
-
-        <ul>
-            <li><a href="logout.php"> Home</li></a>
-            <li><a href="logout.php"> Contact us</li></a>
-            <!-- <li><a href="logout.php"> Login</li></a> -->
-
-        </ul>
-
-
-    </nav>
+    <ul>
+        <li>login</li>
+        <li>Contact us</li>
+    </ul>
 </header>
 
 
@@ -117,7 +125,7 @@ if (isset($_POST['submit'])) {
 
                     <!-- =========================modal body(form)================================ -->
 
-                    <form class="w-full max-w-sm form" action="admin.php" method="post" enctype="multipart/form-data">
+                    <form class=" form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                         <div class="md:flex md:items-center mb-6">
                             <div class="md:w-1/3">
                                 <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -125,7 +133,7 @@ if (isset($_POST['submit'])) {
                                 </label>
                             </div>
                             <div class="md:w-2/3">
-                                <input class="bg-gray-200  appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 image" id="inline-full-name" type="file" placeholder="Hero's name" name="image">
+                                <input class=" image" id="inline-full-name" type="file" placeholder="Hero's name" name="image"></span>
                             </div>
                         </div>
                         <div class="md:flex md:items-center mb-6">
@@ -156,7 +164,7 @@ if (isset($_POST['submit'])) {
                                 </label>
                             </div>
                             <div class="md:w-2/3">
-                                <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Hero's short bio" name="shortBio" id=""  rows="3"></textarea>
+                                <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Hero's short bio" name="shortBio" id="" rows="3"></textarea>
 
                             </div>
                         </div>
@@ -167,7 +175,7 @@ if (isset($_POST['submit'])) {
                                 </label>
                             </div>
                             <div class="md:w-2/3">
-                                <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Hero's long bio" name="longBio" id=""  rows="5"></textarea>
+                                <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Hero's long bio" name="longBio" id="" rows="5"></textarea>
 
                             </div>
                         </div>
@@ -205,7 +213,7 @@ if (isset($_POST['submit'])) {
 
 
                     <!-- =========================modal body(form)================================ -->
-                    
+
 
                     <form class="w-full max-w-sm form" action="update.php" method="post" enctype="multipart/form-data">
                         <div class="md:flex md:items-center mb-6">
@@ -227,7 +235,7 @@ if (isset($_POST['submit'])) {
                                 </label>
                             </div>
                             <div class="md:w-2/3">
-                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text"  placeholder="Hero's name" name="name"  id="name">
+                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" placeholder="Hero's name" name="name" id="name">
                             </div>
                         </div>
                         <div class="md:flex md:items-center mb-6">
@@ -292,8 +300,8 @@ if (isset($_POST['submit'])) {
 
 
 
-        <!-- ================================================edit Modal =============================================================-->
-        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- ================================================edit Modal =============================================================-->
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -306,7 +314,7 @@ if (isset($_POST['submit'])) {
 
 
                     <!-- =========================modal body(form)================================ -->
-                    
+
 
                     <form class="w-full max-w-sm form" action="update.php" method="post" enctype="multipart/form-data">
                         <div class="md:flex md:items-center mb-6">
@@ -328,7 +336,7 @@ if (isset($_POST['submit'])) {
                                 </label>
                             </div>
                             <div class="md:w-2/3">
-                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text"  placeholder="Hero's name" name="name"  id="name">
+                                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" placeholder="Hero's name" name="name" id="name">
                             </div>
                         </div>
                         <div class="md:flex md:items-center mb-6">
@@ -369,7 +377,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="md:flex md:items-center">
                             <div class="md:w-1/3"></div>
-                           
+
                         </div>
                     </form>
 
@@ -399,7 +407,7 @@ if (isset($_POST['submit'])) {
                     <form class="w-full max-w-sm" action="delete.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="deleteid" id="deleteid">
                         <p>are you sure you want to delete this hero</p>
-                        <button type="submit" class="delete rounded text-white" name="deletedata">
+                        <button type="submit" class="delete text-black rounded text-white" name="deletedata">
                             delete
                         </button>
                         <button type="button" class="canceldelete rounded text-white" data-dismiss="modal">cancel</button>
@@ -418,11 +426,13 @@ if (isset($_POST['submit'])) {
     <div class="section-hero">
         <h3 class="text-center">Admin page</h3>
         <div class="addbutton">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hero_moreModal">
-            Add Hero
-        </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hero_moreModal">
+                Add Hero
+            </button>
+           
         </div>
-        
+        <!--  -->
+
 
         <!-- ====================================fetching =====================-->
 
@@ -463,16 +473,17 @@ if (isset($_POST['submit'])) {
                             <tr>
                                 <td class="id"><?php echo $row['id'] ?></td>
                                 <td class="">
-                                    <img src="<?php echo "img/".$row['heroProfile'] ?>" alt=""> </td>
+                                    <img class="imghero" src="<?php echo "img/" . $row['heroProfile'] ?>" alt="">
+                                </td>
                                 <td><?php echo $row['heroName'] ?></td>
 
                                 <td><?php echo $row['realName'] ?></td>
-                                <td ><?php echo $row['shortBio'] ?></td>
+                                <td><?php echo $row['shortBio'] ?></td>
                                 <td class="long"><?php echo $row['longBio'] ?></td>
-                               
+
                                 <td class="buttons">
-                                    <button class="editbtn" type="button"><img class="imgicon" src="../assets/icons/edit.png" alt=""></button>
-                                    <button class="deletebtn" type="submit"><img src="../assets/icons/del.png" alt=""></button>
+                                    <button class="editbtn flex items-center justify-center" type="button"><img class="imgicon" src="../assets/icons/edit.png" alt=""></button>
+                                    <button class="deletebtn flex items-center justify-center" type="submit"><img src="../assets/icons/del.png" alt=""></button>
                                 </td>
                             </tr>
 
@@ -498,61 +509,61 @@ if (isset($_POST['submit'])) {
         </div>
 
 
-        
-  
-<footer class="relative bottom-0 top-10">
-        <div class="parent flex  md:flex-row mb-10 mt-10 md:w-screen md:justify-evenly sm:flex-row sm:justify-evenly  lg:flex-row lg:justify-evenly">
-        <div class="child1 flex-col md:w-1/4 ">
-           <h3 class="font-extrabold text-white text-xl">
-           X-MEN
-           </h3>
-           <p class="text-stone-300 font-medium ">
-           simply dummy text of the printing and typesetting industry
-           </p>
-           <div class="flex-col w-full">
-       
-        <form action="" class="flex-col gap-2 mt-5"> 
-            <h3 class="font-extrabold text-white text-xl">Subscribe</h4>
-            <input class="text-center rounded-lg h-10 w-3/4 mt-4 mb-4" type="email" placeholder="Your email">
-            <button class="subscribe text-white font-bold w-24 h-10 rounded-lg text-center send">Submit</button>
-        </form>
-        </div>
-           <div class="media">
-            <h4 class="font-extrabold text-white text-xl">Follow us</h4>
 
-            <div class="flex gap-2 mt-3">
-            <img class="social w-8" src="../assets/icons/insta.png" alt="">
-            <img class="w-8 social" src="../assets/icons/youtube.png" alt="">
-            <img class="w-8 social" src="../assets/icons/twitte.png" alt="">
-            
-            </div>
-            
-            
-        </div>
-        </div>
-        
 
-        
-        <div class="child2 flex-col md:w-1/4 mt-5 ">
-            <h4 class="font-extrabold text-white text-xl">Contact us</h4>
-            <div class="flex-col">
-            <form action="">
-                <input class="text-center rounded-lg h-10 w-full mt-2 mb-2 inputname" type="text" placeholder="full name">
-                <div class="flex gap-2">
-                <input class="text-center rounded-lg h-10 w-2/3 mt-2 mb-2" type="text" placeholder="Phone number">
-                <input class="text-center rounded-lg h-10 w-2/3 mt-2 mb-2" type="email" placeholder="email">
+        <footer class="relative bottom-0 top-10">
+            <div class="parent flex  md:flex-row mb-10 mt-10 md:w-screen md:justify-evenly sm:flex-row sm:justify-evenly  lg:flex-row lg:justify-evenly">
+                <div class="child1 flex-col md:w-1/4 ">
+                    <h3 class="font-extrabold text-white text-xl">
+                        X-MEN
+                    </h3>
+                    <p class="text-stone-300 font-medium ">
+                        simply dummy text of the printing and typesetting industry
+                    </p>
+                    <div class="flex-col w-full">
+
+                        <form action="" class="flex-col gap-2 mt-5">
+                            <h3 class="font-extrabold text-white text-xl">Subscribe</h4>
+                                <input class="text-center rounded-lg h-10 w-3/4 mt-4 mb-4" type="email" placeholder="Your email">
+                                <button class="subscribe text-white font-bold w-24 h-10 rounded-lg text-center send">Submit</button>
+                        </form>
+                    </div>
+                    <div class="media">
+                        <h4 class="font-extrabold text-white text-xl">Follow us</h4>
+
+                        <div class="flex gap-2 mt-3">
+                            <img class="social w-8" src="../assets/icons/insta.png" alt="">
+                            <img class="w-8 social" src="../assets/icons/youtube.png" alt="">
+                            <img class="w-8 social" src="../assets/icons/twitte.png" alt="">
+
+                        </div>
+
+
+                    </div>
                 </div>
-                <textarea  class="text-center rounded-lg text-gray-400 font-medium w-full mt-2 mb-2" type="text" placeholder="message" name="" id="" cols="30" rows="7"> message</textarea>
-                
-            
-                <button class="subscribe text-white font-bold w-24 h-10 rounded-lg text-center send">Send</button>
-            </form>
+
+
+
+                <div class="child2 flex-col md:w-1/4 mt-5 ">
+                    <h4 class="font-extrabold text-white text-xl">Contact us</h4>
+                    <div class="flex-col">
+                        <form action="">
+                            <input class="text-center rounded-lg h-10 w-full mt-2 mb-2 inputname" type="text" placeholder="full name">
+                            <div class="flex gap-2">
+                                <input class="text-center rounded-lg h-10 w-2/3 mt-2 mb-2" type="text" placeholder="Phone number">
+                                <input class="text-center rounded-lg h-10 w-2/3 mt-2 mb-2" type="email" placeholder="email">
+                            </div>
+                            <textarea class="text-center rounded-lg text-gray-400 font-medium w-full mt-2 mb-2" type="text" placeholder="message" name="" id="" cols="30" rows="7"> message</textarea>
+
+
+                            <button class="subscribe text-white font-bold w-24 h-10 rounded-lg text-center send">Send</button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
-            
-        </div>
-        </div>
-       
-    </footer>
+
+        </footer>
 
 
 
@@ -564,10 +575,34 @@ if (isset($_POST['submit'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../script/sweetalert.min.js"></script>
         <script src="../script/dataTables.js"></script>
 
         <script src="../script/updateModal.js"></script>
         <script src="../script/deleteModal.js"></script>
+        
+             <?php
+            if (isset($_SESSION['status'])) {
+
+            ?>
+            <script>
+               swal({
+                title: "Success!",
+                icon: "success",
+                button: "close!",
+            });
+               
+        </script>
+               
+            <?php
+                unset($_SESSION['status']);
+            }
+            ?>
+      
+
+
+
+        <!-- <script src="../script/burger.js"></script> -->
 
 
 </body>

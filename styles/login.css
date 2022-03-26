@@ -20,8 +20,8 @@ input[type=email]{
     width: 25%;
 }
 
-.send{
-    background-color: #2B6777;
+.send1{
+    background-color: #2B6777 !important;
     border: 0;
     width: 25%;
     height: 6vh;
@@ -48,6 +48,9 @@ form{
 .sign{
     font-weight: bolder;
     font-size: 1.2rem;
+    color: #2B6777;
+    font-weight: bolder;
+    text-decoration: none;
 }
 p{
     color: white;
@@ -63,4 +66,25 @@ p{
 }
 .btnback img{
     width: 3rem !important;
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    input[type=email]{
+        width: 90% !important;
+        
+    }
+    input[type=password]{
+        width: 90% !important;
+       
+    }
+    .send{
+        width: 90% !important;
+
+    }
+   .login p{
+       width: 90%;
+   }
 }

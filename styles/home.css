@@ -11,3 +11,71 @@
 }
 
 
+
+.idhero{
+    /* background-color: #52ab98; */
+    color: white;
+    font-family: bold;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   
+}
+
+.morebtn{
+    background-color: #52ab98;
+    
+    text-align: center;
+    border: 0;
+    width: 7vw;
+    height: 5vh;
+    border-radius: 5px;
+
+}
+.morebtn a{
+    color: white;
+    font-family: bold;
+    text-decoration: none;
+  
+
+}
+
+.morebtn a:hover{
+    color: white;
+}
+.shortbio{
+    width: 100% !important;
+}
+
+table{
+  
+    width: 80%;
+}
+#heroTable_paginate{
+    width: 80% !important;
+    
+}
+
+.imghero{
+    width: 20vw;
+    
+   
+}
+
+.anav{
+    color: #52ab98;
+}
+
+.anav:hover{
+    background-color: #52ab9846;
+    border-radius: 3px;
+    width: 10vh !important;
+    height: 10vh;
+    color: #52ab98;
+
+}

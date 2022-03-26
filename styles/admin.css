@@ -24,13 +24,16 @@ li a{
     text-transform: uppercase;
     font-weight: bold;
 }
+.close{
+    width: 3vw !important;
+}
 
 nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
-    background-color: #52ab98;
+    color: #52ab98;
+ 
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 0.5rem;
@@ -223,10 +226,60 @@ nav{
 
 }
 
+nav .openMenu{
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+}
 
+nav .mainMenu .closeMenu{
+    cursor: pointer;
+    display: none;
+}
 
-@media only screen and (max-width: 600px) {
-    body {
-      background-color: lightblue;
+@media only screen and (max-width: 800px) {
+    nav .mainMenu{
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: top 1s ease;
     }
-  }
+    nav .mainMenu .closeMenu{
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+    }
+    nav .openMenu{
+        display: block;
+    }
+    nav .mainMenu .closeMenu{
+        display: none;
+    }
+    nav .mainMenu li a:hover{
+        background: none;
+        color: #054E2B;
+        font: 1.6rem;
+    }
+
+
+}
+
+.alert{
+    width: 30% !important;
+    margin: 5rem !important;
+}
+
+.imghero{
+    width: 20vw;
+    
+   
+}

@@ -1,6 +1,6 @@
 <?php
 
-include('./config/dbconnect.php');
+include('../config/dbconnect.php');
 if (isset($_POST['submit'])) {
 
     if ($_FILES["image"]["error"] == 4) {
@@ -70,11 +70,11 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <link rel="stylesheet" href="../styles/main.css"> -->
-    <link rel="stylesheet" href="./styles/admin.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/home.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
-    <link rel="stylesheet" href="./styles/homeres.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/homeres.css">
     <!-- <link href="https://unpkg.com/tailwindcss@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://cdn-tailwindcss.vercel.app/"></script> -->
 
@@ -83,29 +83,23 @@ if (isset($_POST['submit'])) {
 </head>
 
 
-
 <header>
-        <div class="overlay-header">
-        <nav class="nav- ">
-            <div class="logo-del"><h1>X-MEN</h1></div>
-            <div class="openMenu"><img src="./assets/icons/humberger.png" alt=""></div>
-            <ul class="mainMenu">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./pages/dashboard.html">Blog</a></li>
-             
-               
-                <div class="closeMenu"><img src="./assets/icons/close.png" alt=""></div>
-            </ul>
-        </nav>
-    </div>
-    
+<nav>
+    <ul class="text-white font-bolder">
+        <li><a class="anav" href="./home.php">Home</a> </li>
+        <li><a class="anav" href="./signup.php"> Sign up</a></li>
+        <li><a class="anav" href="">Contact us</a> </li>
+    </ul>
+</nav>
 
 
 
-       
 
-    </header>
 
+
+
+
+</header>
 
 
 <body class="">
@@ -361,7 +355,7 @@ if (isset($_POST['submit'])) {
                     <tr>
                         
                         <th scope="col">Hero</th>
-                        <th scope="col">Details</th>
+                        <th scope="col" class="detailsth">Details</th>
 
                     </tr>
                 </thead>
@@ -372,16 +366,16 @@ if (isset($_POST['submit'])) {
                         <tbody>
                             <tr>
                                 <td class="id">
-                                    <?php echo $row['id'] ?>
+                                   <p class="idhero"><?php echo $row['id'] ?></p> 
                                     <?php echo $row['heroName'] ?>
                                
-                                    <img src="<?php echo "img/".$row['heroProfile'] ?>" alt="">
+                                    <img class="imghero" src="<?php echo "img/".$row['heroProfile'] ?>" alt="">
                                    
                                 </td>
 
                                 <td class="all">
                                      <p class="det">real name is <span class="realname"> <?php echo $row['realName'] ?> </span>, </p> 
-                                <?php echo $row['shortBio'] ?>
+                               <p class="shortbio"> <?php echo $row['shortBio'] ?></p>
                                 <button class="morebtn"><a href="more.php?id=<?php echo $row['id']?>">More</a> </button>
                             </td>
                                

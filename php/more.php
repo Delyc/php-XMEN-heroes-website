@@ -66,27 +66,11 @@ if(isset($_GET['id'])){
         
         <img class=" " src="img/<?php echo htmlspecialchars(($hero['heroProfile'])); ?>" alt="">
         <p class=""><?php echo htmlspecialchars(($hero['realName'])); ?></p>
-        <p class=""><?php echo htmlspecialchars(($hero['shortBio'])); ?></p>
+        <p class="bio"><?php echo htmlspecialchars(($hero['shortBio'])); ?></p>
         <p class=""><?php echo htmlspecialchars(($hero['longBio'])); ?></p>
 
 
         </div>
-       
-    
-
-        
-       
-            
-
-     
-
-
-
-
-      
-    
-        
-    
 
     <?php else: ?>
         <div class="flex items-center justify-center w-screen h-screen">
